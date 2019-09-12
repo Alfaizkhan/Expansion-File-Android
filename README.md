@@ -18,25 +18,24 @@ When Google Play downloads your expansion files to a device, it saves them to th
  #
  ## Declaring user permissions Required
 In order to download the expansion files, the Downloader Library requires several permissions that you must declare in your application’s manifest file. They are:
-####  <manifest ...>
-####     <!-- Required to access Google Play Licensing -->
-####     <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
-####      <!-- Required to download files from Google Play -->
-####     <uses-permission android:name="android.permission.INTERNET" />
-####      <!-- Required to keep CPU alive while downloading files
-####         (NOT to keep screen awake) -->
-####     <uses-permission android:name="android.permission.WAKE_LOCK" />
-####      <!-- Required to poll the state of the network connection
-####         and respond to changes -->
-####     <uses-permission
-####         android:name="android.permission.ACCESS_NETWORK_STATE" />
-####      <!-- Required to check whether Wi-Fi is enabled -->
-####     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-####      <!-- Required to read and write the expansion files on shared storage -->
-####     <uses-permission
-####         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-####     ...
-####  </manifest>
+  <manifest ...>
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+      <!-- Required to download files from Google Play -->
+     <uses-permission android:name="android.permission.INTERNET" />
+     <!-- Required to keep CPU alive while downloading files
+         (NOT to keep screen awake) -->
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <!-- Required to poll the state of the network connection
+        and respond to changes -->
+    <uses-permission
+         android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <!-- Required to check whether Wi-Fi is enabled -->
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+     <!-- Required to read and write the expansion files on shared storage -->
+    <uses-permission
+         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     ...
+ </manifest>
 #
 ## How to import zip file library?
 
