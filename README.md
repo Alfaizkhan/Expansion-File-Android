@@ -1,23 +1,23 @@
 # Expansion-File-Android
 
-Google Play Developer Console has a limitation that doesn’t allow users to upload the APK file of more than 100 MB size. However, some android apps need more space for high-fidelity graphics, media files, or other large assets. Previously, if your app exceeded 100 MB, you had to host and download the additional resources yourself.
+#### Google Play Developer Console has a limitation that doesn’t allow users to upload the APK file of more than 100 MB size. However, some android apps need more space for high-fidelity graphics, media files, or other large assets. Previously, if your app exceeded 100 MB, you had to host and download the additional resources yourself.
 #
 ## How to make expansion file ?
-Make a zip folder of your assets like audio files, video files, images or anything you want to use in your app. Rename your zip file into below format.
+#### Make a zip folder of your assets like audio files, video files, images or anything you want to use in your app. Rename your zip file into below format.
 
-[main/patch].<expansion-version>.<package-name>.obb
+#### [main/patch].<expansion-version>.<package-name>.obb
 
-For example, your APK version is 1000 and your package name is com.example.app. If you upload a main expansion file, the file name should be main.1000.com.example.app.obb
+#### For example, your APK version is 1000 and your package name is com.example.app. If you upload a main expansion file, the file name should be main.1000.com.example.app.obb
 
-Now your zip file is ready to upload.
+#### Now your zip file is ready to upload.
 #
 ## Storage location
-When Google Play downloads your expansion files to a device, it saves them to the system’s shared storage location. The specific location for your expansion files is: <shared-storage>/Android/obb/<package-name>/
+#### When Google Play downloads your expansion files to a device, it saves them to the system’s shared storage location. The specific location for your expansion files is: <shared-storage>/Android/obb/<package-name>/
 
- When you download an app with expansion file from play store, your expansion file will be downloaded to ../Android/obb/main.1000.com.example.app.obb location.
+#### When you download an app with expansion file from play store, your expansion file will be downloaded to ../Android/obb/main.1000.com.example.app.obb location.
  #
  ## Declaring user permissions Required
-In order to download the expansion files, the Downloader Library requires several permissions that you must declare in your application’s manifest file. They are:
+####In order to download the expansion files, the Downloader Library requires several permissions that you must declare in your application’s manifest file. They are:
 ```
   <manifest ...>
     <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
@@ -39,13 +39,13 @@ In order to download the expansion files, the Downloader Library requires severa
  </manifest>
  ```
 ## How to import zip file library?
-Zip_file library is used to extract your expansion file in your sdcard. Import it from below SDK path.
+#### Zip_file library is used to extract your expansion file in your sdcard. Import it from below SDK path.
 
-Eclipseandroid-sdkextrasgoogleplay_apk_expansionzip_file
+#### Eclipseandroid-sdkextrasgoogleplay_apk_expansionzip_file
 
-How to use your expansion file from MainActivity.java
+#### How to use your expansion file from MainActivity.java
 
-Below function is used to extract your expansion file using ZipHelper.java and create directory of extracted data from your expansion file.
+#### Below function is used to extract your expansion file using ZipHelper.java and create directory of extracted data from your expansion file.
 ```
         public void ZipHelperNew() {
 
@@ -87,9 +87,9 @@ Below function is used to extract your expansion file using ZipHelper.java and c
         }
         }
 ```
-Extract your expansion file using ZipHelper.java
+#### Extract your expansion file using ZipHelper.java
 
-This ZipHelper.java is used to extract the expansion file with above code.
+#### This ZipHelper.java is used to extract the expansion file with above code.
 ```
 public class ZipHelper {
 
@@ -204,11 +204,11 @@ private static void createDirectory(File dir) {
 
 }
 ```
-Your expansion file has now been extracted to your SD card.
+#### Your expansion file has now been extracted to your SD card.
 
-How to get count of images, mp4 and mp3 stored in SD card directory.
+#### How to get count of images, mp4 and mp3 stored in SD card directory.
 
-Try below code to get a total number of count from sdcard directory.
+#### Try below code to get a total number of count from sdcard directory.
 ```
  String filePath = "/mnt/sdcard/dirName/";
 
@@ -231,4 +231,4 @@ Sdcardcount++;
 }
 }
 ```
-
+#### Above code will get you a list of files stored in particular directory.
