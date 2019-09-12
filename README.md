@@ -38,6 +38,53 @@ In order to download the expansion files, the Downloader Library requires severa
      ...
  </manifest>
  ```
-#
 ## How to import zip file library?
+Zip_file library is used to extract your expansion file in your sdcard. Import it from below SDK path.
+
+Eclipseandroid-sdkextrasgoogleplay_apk_expansionzip_file
+
+How to use your expansion file from MainActivity.java
+
+Below function is used to extract your expansion file using ZipHelper.java and create directory of extracted data from your expansion file.
+```
+        public void ZipHelperNew() {
+
+        ZipResourceFile expansionFile = null;
+
+        try {
+
+        expansionFile = APKExpansionSupport.getAPKExpansionZipFile(
+
+        getApplicationContext(), versioncode, 0);
+
+        ZipEntryRO[] zip = expansionFile.getAllEntries();
+
+        Log.e("", "zip[0].isUncompressed() : " +  zip[0].isUncompressed());
+
+        Log.e("","mFile.getAbsolutePath() : "+ zip[0].mFile.getAbsolutePath());
+
+        Log.e("", "mFileName : " + zip[0].mFileName);
+
+        Log.e("", "mZipFileName : " + zip[0].mZipFileName);
+
+        Log.e("", "mCompressedLength : " + zip[0].mCompressedLength);
+
+        String hallostring = zip[0].mFileName;
+
+        String asubstring = hallostring.substring(0, 40);
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/dirName");
+
+        ZipHelper.unzip(zip[0].mZipFileName, file);
+
+        if (file.exists()) {
+
+        Log.e("", "unzipped Success: " + file.getAbsolutePath());
+        }
+
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+        }
+```
 
