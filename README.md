@@ -37,3 +37,6 @@ In order to download the expansion files, the Downloader Library requires severa
 ####         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ####     ...
 ####  </manifest>
+#
+## How to import zip file library?
+
