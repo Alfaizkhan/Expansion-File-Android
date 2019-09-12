@@ -87,4 +87,148 @@ Below function is used to extract your expansion file using ZipHelper.java and c
         }
         }
 ```
+Extract your expansion file using ZipHelper.java
+
+This ZipHelper.java is used to extract the expansion file with above code.
+```
+public class ZipHelper {
+
+static boolean zipError = false;
+
+public static boolean isZipError() {
+
+return zipError;
+}
+
+public static void setZipError(boolean zipError) {
+
+   ZipHelper.zipError = zipError;
+}
+
+public static void unzip(String archive, File outputDir) {
+
+   try {
+
+       Log.d("control", "ZipHelper.unzip() - File: " + archive);
+
+       ZipFile zipfile = new ZipFile(archive);
+
+       for (Enumeration<? extends ZipEntry> e = zipfile.entries(); e
+
+               .hasMoreElements();) {
+
+           ZipEntry entry = (ZipEntry) e.nextElement();
+
+           unzipEntry(zipfile, entry, outputDir);
+         }
+
+   } catch (Exception e) {
+
+       Log.d("control", "ZipHelper.unzip() - Error extracting file "
+
+               + archive + ": " + e);
+
+       setZipError(true);
+   }
+
+}
+
+private static void unzipEntry(ZipFile zipfile, ZipEntry entry,
+
+File outputDir) throws IOException {
+
+   if (entry.isDirectory()) {
+
+       createDirectory(new File(outputDir, entry.getName()));
+
+       return;
+   }
+
+File outputFile = new File(outputDir, entry.getName());
+
+   if (!outputFile.getParentFile().exists()) {
+
+       createDirectory(outputFile.getParentFile());
+
+   }
+
+Log.d("control", "ZipHelper.unzipEntry() - Extracting: " + entry);
+
+   BufferedInputStream inputStream = new BufferedInputStream(
+
+           zipfile.getInputStream(entry));
+
+   BufferedOutputStream outputStream = new BufferedOutputStream(
+
+           new FileOutputStream(outputFile));
+
+try {
+
+       IOUtils.copy(inputStream, outputStream);
+
+} catch (Exception e) {
+
+       Log.d("control", "ZipHelper.unzipEntry() - Error: " + e);
+
+       setZipError(true);
+
+} finally {
+
+       outputStream.close();
+
+       inputStream.close();
+
+}
+}
+
+private static void createDirectory(File dir) {
+
+   Log.d("control",
+
+           "ZipHelper.createDir() - Creating directory: " + dir.getName());
+
+   if (!dir.exists()) {
+
+       if (!dir.mkdirs())
+
+           throw new RuntimeException("Can't create directory " + dir);
+
+   } else
+
+       Log.d("control",
+
+               "ZipHelper.createDir() - Exists directory: "
+
+                       + dir.getName());
+   }
+
+}
+```
+Your expansion file has now been extracted to your SD card.
+
+How to get count of images, mp4 and mp3 stored in SD card directory.
+
+Try below code to get a total number of count from sdcard directory.
+```
+ String filePath = "/mnt/sdcard/dirName/";
+
+File file = new File(filePath);
+
+if (file.exists()) {
+
+File fileCount = new File("/mnt/sdcard/dirName/);
+
+File[] list = fileCount.listFiles();
+
+for (File f : list) {
+
+String name = f.getName();
+
+if (name.endsWith(".jpg") || name.endsWith(".mp3") || name.endsWith(".mp4"))
+
+Sdcardcount++;
+
+}
+}
+```
 
