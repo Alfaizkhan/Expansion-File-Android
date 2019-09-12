@@ -53,38 +53,38 @@
 
         try {
 
-        expansionFile = APKExpansionSupport.getAPKExpansionZipFile(
+             expansionFile = APKExpansionSupport.getAPKExpansionZipFile(
 
-        getApplicationContext(), versioncode, 0);
+             getApplicationContext(), versioncode, 0);
 
-        ZipEntryRO[] zip = expansionFile.getAllEntries();
+             ZipEntryRO[] zip = expansionFile.getAllEntries();
 
-        Log.e("", "zip[0].isUncompressed() : " +  zip[0].isUncompressed());
+             Log.e("", "zip[0].isUncompressed() : " +  zip[0].isUncompressed());
 
-        Log.e("","mFile.getAbsolutePath() : "+ zip[0].mFile.getAbsolutePath());
+             Log.e("","mFile.getAbsolutePath() : "+ zip[0].mFile.getAbsolutePath());
 
-        Log.e("", "mFileName : " + zip[0].mFileName);
+             Log.e("", "mFileName : " + zip[0].mFileName);
 
-        Log.e("", "mZipFileName : " + zip[0].mZipFileName);
+             Log.e("", "mZipFileName : " + zip[0].mZipFileName);
 
-        Log.e("", "mCompressedLength : " + zip[0].mCompressedLength);
+             Log.e("", "mCompressedLength : " + zip[0].mCompressedLength);
 
-        String hallostring = zip[0].mFileName;
+             String hallostring = zip[0].mFileName;
 
-        String asubstring = hallostring.substring(0, 40);
+             String asubstring = hallostring.substring(0, 40);
 
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/dirName");
+             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/dirName");
 
-        ZipHelper.unzip(zip[0].mZipFileName, file);
+             ZipHelper.unzip(zip[0].mZipFileName, file);
 
-        if (file.exists()) {
+                  if (file.exists()) {
 
-        Log.e("", "unzipped Success: " + file.getAbsolutePath());
-        }
+                  Log.e("", "unzipped Success: " + file.getAbsolutePath());
+                  }
 
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+             } catch (IOException e) {
+             e.printStackTrace();
+             }
         }
 ```
 #### Extract your expansion file using ZipHelper.java
@@ -214,21 +214,21 @@ private static void createDirectory(File dir) {
 
 File file = new File(filePath);
 
-if (file.exists()) {
+    if (file.exists()) {
 
-File fileCount = new File("/mnt/sdcard/dirName/);
+    File fileCount = new File("/mnt/sdcard/dirName/);
 
-File[] list = fileCount.listFiles();
+    File[] list = fileCount.listFiles();
 
-for (File f : list) {
+    for (File f : list) {
 
-String name = f.getName();
+    String name = f.getName();
 
-if (name.endsWith(".jpg") || name.endsWith(".mp3") || name.endsWith(".mp4"))
+          if (name.endsWith(".jpg") || name.endsWith(".mp3") || name.endsWith(".mp4"))
 
-Sdcardcount++;
+          Sdcardcount++;
 
-}
+    }
 }
 ```
 #### Above code will get you a list of files stored in particular directory.
