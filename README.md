@@ -18,7 +18,7 @@
  #
  ## Declaring user permissions Required
 ####In order to download the expansion files, the Downloader Library requires several permissions that you must declare in your application’s manifest file. They are:
-```
+```java
   <manifest ...>
     <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
       <!-- Required to download files from Google Play -->
