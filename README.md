@@ -46,7 +46,7 @@
 #### How to use your expansion file from MainActivity.java
 
 #### Below function is used to extract your expansion file using ZipHelper.java and create directory of extracted data from your expansion file.
-```
+```java
         public void ZipHelperNew() {
 
         ZipResourceFile expansionFile = null;
@@ -90,7 +90,7 @@
 #### Extract your expansion file using ZipHelper.java
 
 #### This ZipHelper.java is used to extract the expansion file with above code.
-```
+```java
 public class ZipHelper {
 
 static boolean zipError = false;
@@ -209,7 +209,7 @@ private static void createDirectory(File dir) {
 #### How to get count of images, mp4 and mp3 stored in SD card directory.
 
 #### Try below code to get a total number of count from sdcard directory.
-```
+```java
  String filePath = "/mnt/sdcard/dirName/";
 
 File file = new File(filePath);
